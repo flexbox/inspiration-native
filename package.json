@@ -8,10 +8,12 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@eva-design/eva": "^1.0.1",
     "expo": "^33.0.0",
     "react": "16.8.3",
     "react-dom": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+    "react-native-ui-kitten": "^4.1.0",
     "react-native-web": "^0.11.4"
   },
   "devDependencies": {
