@@ -3,7 +3,7 @@ import { Layout, Text, Button } from 'react-native-ui-kitten';
 
 export const HomeScreen = () => (
   <Layout>
-    <Text category="h4">Welcome to UI Kitten</Text>
+    <Text category="h4">Inspiration</Text>
     <Button>BUTTON</Button>
   </Layout>
 );
