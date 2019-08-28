@@ -1,17 +1,28 @@
 import * as React from 'react';
 import { SafeAreaView } from 'react-native';
-import { mapping, light as lightTheme } from '@eva-design/eva';
 import { ApplicationProvider, Layout } from 'react-native-ui-kitten';
-import { HomeScreen } from './HomeScreen';
+import { mapping, light, dark } from '@eva-design/eva';
+import { HomeScreen } from './src/HomeScreen';
 
-const App = () => (
-  <ApplicationProvider mapping={mapping} theme={lightTheme}>
-    <Layout style={{ flex: 1 }}>
-      <SafeAreaView>
-        <HomeScreen />
-      </SafeAreaView>
-    </Layout>
-  </ApplicationProvider>
-);
+const themes = { light, dark };
+
+const App = () => {
+  const [theme, setTheme] = React.useState('light');
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(nextTheme);
+  };
+
+  return (
+    <ApplicationProvider mapping={mapping} theme={themes[theme]}>
+      <Layout style={{ flex: 1 }}>
+        <SafeAreaView>
+          <HomeScreen toggleTheme={toggleTheme} />
+        </SafeAreaView>
+      </Layout>
+    </ApplicationProvider>
+  );
+};
 
 export default App;
