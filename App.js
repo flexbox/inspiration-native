@@ -2,7 +2,7 @@ import * as React from 'react';
 import { SafeAreaView } from 'react-native';
 import { ApplicationProvider, Layout } from 'react-native-ui-kitten';
 import { mapping, light, dark } from '@eva-design/eva';
-import { HomeScreen } from './HomeScreen';
+import { HomeScreen } from './src/HomeScreen';
 
 const themes = { light, dark };
 
