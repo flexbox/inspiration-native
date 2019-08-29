@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { View } from 'react-native';
 import { Text } from 'react-native-ui-kitten';
 import styled from 'styled-components/native';
 
@@ -9,6 +10,6 @@ export const Quote = props => (
   </Card>
 );
 
-const Card = styled.View`
+const Card = styled(View)`
   margin: 30px;
 `;

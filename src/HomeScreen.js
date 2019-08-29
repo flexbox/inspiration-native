@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { View } from 'react-native';
 import { Layout, Text, Button, List } from 'react-native-ui-kitten';
 import { Quote } from './components/Quote.js';
 import styled from 'styled-components/native';
@@ -21,7 +22,7 @@ export const HomeScreen = props => {
   );
 };
 
-const Container = styled.View`
+const Container = styled(View)`
   margin: 30px;
   flex-direction: row;
   justify-content: space-between;
