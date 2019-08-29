@@ -1,0 +1,6 @@
+endpoint: https://eu1.prisma.sh/flexbox/inspiration/dev
+datamodel: datamodel.prisma
+
+generate:
+  - generator: javascript-client
+    output: ./generated/prisma-client/
