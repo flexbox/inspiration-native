@@ -9,6 +9,14 @@ yarn
 yarn start
 ```
 
+## Release Workflow
+
+```
+yarn deploy:staging
+yarn deploy:prod
+on the prompt add the folder `web-build`
+```
+
 ## Author
 
 | [![twitter/flexbox_](https://gravatar.com/avatar/66ecc55f1bc2e5863eb516ee6f20794e?s=70)](https://twitter.com/flexbox_ 'Follow @flexbox_ on Twitter') |
