@@ -1,0 +1,27 @@
+scalar DateTime
+
+type Query {
+  quotes: [Quote!]!
+  quote(id: ID!): Quote
+  randomQuote: Quote
+  lastQuote: Quote
+}
+
+type Mutation {
+  createQuote(
+    title: String!
+    author: String!
+    twitterName: String
+    slug: String!
+  ): Quote!
+}
+
+type Quote {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String!
+  author: String!
+  twitterName: String
+  slug: String!
+}
