@@ -3,7 +3,7 @@ module.exports = {
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-/* GraphQL */ `type AggregateUser {
+/* GraphQL */ `type AggregateQuote {
   count: Int!
 }
 
@@ -11,15 +11,17 @@ type BatchPayload {
   count: Long!
 }
 
+scalar DateTime
+
 scalar Long
 
 type Mutation {
-  createUser(data: UserCreateInput!): User!
-  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
-  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
-  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
-  deleteUser(where: UserWhereUniqueInput!): User
-  deleteManyUsers(where: UserWhereInput): BatchPayload!
+  createQuote(data: QuoteCreateInput!): Quote!
+  updateQuote(data: QuoteUpdateInput!, where: QuoteWhereUniqueInput!): Quote
+  updateManyQuotes(data: QuoteUpdateManyMutationInput!, where: QuoteWhereInput): BatchPayload!
+  upsertQuote(where: QuoteWhereUniqueInput!, create: QuoteCreateInput!, update: QuoteUpdateInput!): Quote!
+  deleteQuote(where: QuoteWhereUniqueInput!): Quote
+  deleteManyQuotes(where: QuoteWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -40,76 +42,101 @@ type PageInfo {
 }
 
 type Query {
-  user(where: UserWhereUniqueInput!): User
-  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
-  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  quote(where: QuoteWhereUniqueInput!): Quote
+  quotes(where: QuoteWhereInput, orderBy: QuoteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Quote]!
+  quotesConnection(where: QuoteWhereInput, orderBy: QuoteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): QuoteConnection!
   node(id: ID!): Node
 }
 
-type Subscription {
-  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
-}
-
-type User {
+type Quote {
   id: ID!
-  name: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String!
+  author: String!
+  twitterName: String
+  slug: String!
 }
 
-type UserConnection {
+type QuoteConnection {
   pageInfo: PageInfo!
-  edges: [UserEdge]!
-  aggregate: AggregateUser!
+  edges: [QuoteEdge]!
+  aggregate: AggregateQuote!
 }
 
-input UserCreateInput {
+input QuoteCreateInput {
   id: ID
-  name: String!
+  title: String!
+  author: String!
+  twitterName: String
+  slug: String!
 }
 
-type UserEdge {
-  node: User!
+type QuoteEdge {
+  node: Quote!
   cursor: String!
 }
 
-enum UserOrderByInput {
+enum QuoteOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  title_ASC
+  title_DESC
+  author_ASC
+  author_DESC
+  twitterName_ASC
+  twitterName_DESC
+  slug_ASC
+  slug_DESC
 }
 
-type UserPreviousValues {
+type QuotePreviousValues {
   id: ID!
-  name: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String!
+  author: String!
+  twitterName: String
+  slug: String!
 }
 
-type UserSubscriptionPayload {
+type QuoteSubscriptionPayload {
   mutation: MutationType!
-  node: User
+  node: Quote
   updatedFields: [String!]
-  previousValues: UserPreviousValues
+  previousValues: QuotePreviousValues
 }
 
-input UserSubscriptionWhereInput {
+input QuoteSubscriptionWhereInput {
   mutation_in: [MutationType!]
   updatedFields_contains: String
   updatedFields_contains_every: [String!]
   updatedFields_contains_some: [String!]
-  node: UserWhereInput
-  AND: [UserSubscriptionWhereInput!]
-  OR: [UserSubscriptionWhereInput!]
-  NOT: [UserSubscriptionWhereInput!]
+  node: QuoteWhereInput
+  AND: [QuoteSubscriptionWhereInput!]
+  OR: [QuoteSubscriptionWhereInput!]
+  NOT: [QuoteSubscriptionWhereInput!]
 }
 
-input UserUpdateInput {
-  name: String
+input QuoteUpdateInput {
+  title: String
+  author: String
+  twitterName: String
+  slug: String
 }
 
-input UserUpdateManyMutationInput {
-  name: String
+input QuoteUpdateManyMutationInput {
+  title: String
+  author: String
+  twitterName: String
+  slug: String
 }
 
-input UserWhereInput {
+input QuoteWhereInput {
   id: ID
   id_not: ID
   id_in: [ID!]
@@ -124,27 +151,89 @@ input UserWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  AND: [UserWhereInput!]
-  OR: [UserWhereInput!]
-  NOT: [UserWhereInput!]
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  author: String
+  author_not: String
+  author_in: [String!]
+  author_not_in: [String!]
+  author_lt: String
+  author_lte: String
+  author_gt: String
+  author_gte: String
+  author_contains: String
+  author_not_contains: String
+  author_starts_with: String
+  author_not_starts_with: String
+  author_ends_with: String
+  author_not_ends_with: String
+  twitterName: String
+  twitterName_not: String
+  twitterName_in: [String!]
+  twitterName_not_in: [String!]
+  twitterName_lt: String
+  twitterName_lte: String
+  twitterName_gt: String
+  twitterName_gte: String
+  twitterName_contains: String
+  twitterName_not_contains: String
+  twitterName_starts_with: String
+  twitterName_not_starts_with: String
+  twitterName_ends_with: String
+  twitterName_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  AND: [QuoteWhereInput!]
+  OR: [QuoteWhereInput!]
+  NOT: [QuoteWhereInput!]
 }
 
-input UserWhereUniqueInput {
+input QuoteWhereUniqueInput {
   id: ID
+}
+
+type Subscription {
+  quote(where: QuoteSubscriptionWhereInput): QuoteSubscriptionPayload
 }
 `
       }
