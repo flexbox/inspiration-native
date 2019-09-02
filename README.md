@@ -4,8 +4,9 @@
 
 ## Getting started
 
-```
+```bash
 yarn
+yarn server # Start our GraphQL Server
 yarn start
 ```
 
