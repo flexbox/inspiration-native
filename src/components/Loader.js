@@ -10,7 +10,7 @@ const Loader = () => (
 export default Loader;
 
 const Container = styled(Layout)`
-  flex: 1;
+  padding-top: 20;
   align-items: center;
   justify-content: center;
 `;

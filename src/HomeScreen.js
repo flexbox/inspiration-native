@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { View } from 'react-native';
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 import { Layout, Text, Button, List } from 'react-native-ui-kitten';
@@ -34,17 +33,19 @@ export const HomeScreen = props => {
   );
 
   return (
-    <Layout>
-      <Container>
+    <Container>
+      <Header>
         <Text category="h4">Inspiration</Text>
         <Button onPress={props.toggleTheme}>Switch theme</Button>
-      </Container>
+      </Header>
       <List data={quotes} renderItem={renderItem} />
-    </Layout>
+    </Container>
   );
 };
 
-const Container = styled(View)`
+const Container = styled(Layout)``;
+
+const Header = styled(Layout)`
   margin: 30px;
   flex-direction: row;
   justify-content: space-between;
