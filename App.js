@@ -8,7 +8,8 @@ import { HomeScreen } from './src/HomeScreen';
 
 const apolloClient = new ApolloClient({
   // TODO: raw `uri` to env. variable
-  uri: 'https://inspiration-native-fork.netlify.com/.netlify/functions/graphql'
+  uri:
+    'https://inspiration-native-staging.netlify.com/.netlify/functions/graphql'
 });
 
 const themes = { light, dark };
