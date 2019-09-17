@@ -18,7 +18,11 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.wearepoor.inspiration"
+    },
+    "android": {
+      "package": "com.wearepoor.inspiration"
     }
   }
 }

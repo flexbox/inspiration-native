@@ -1,21 +1,30 @@
-# Inspiration-native • [![Netlify Status](https://api.netlify.com/api/v1/badges/ece32f9d-5cd2-4360-a0ed-b7e64b2eb7d0/deploy-status)](https://app.netlify.com/sites/inspiration-native/deploys)
+# Inspiration-native • [![Netlify Status](https://api.netlify.com/api/v1/badges/49ea4e46-01d3-4bfa-a952-afd0c0f53be8/deploy-status)](https://app.netlify.com/sites/inspiration-native-fork/deploys)
 
-> React Native (Expo iOS, Android and Web) application for
+> Inspiration Native (Expo iOS, Android and Web)
 
 ## Getting started
 
 ```bash
 yarn
-yarn server # Start our GraphQL Server
 yarn start
 ```
 
 ## Release Workflow
 
-```
-yarn deploy:staging
+```bash
+# 👷‍  Build your GQL Function (don't panic if it logs WARNINGS)
+yarn build:lambda
+
+# 👷‍  Build Mobile `apk` or `ipa`
+# 🙌  Let Expo handle the process
+yarn build:android
+yarn build:ios
+
+# 👷‍  Built your static Web `web-build`
+yarn build:web
+
+# 🚀  Deploy to Netlify, which will handle `web-build` and our `lambdas`
 yarn deploy:prod
-on the prompt add the folder `web-build`
 ```
 
 ## Author

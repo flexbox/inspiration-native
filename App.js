@@ -7,7 +7,8 @@ import { mapping, light, dark } from '@eva-design/eva';
 import { HomeScreen } from './src/HomeScreen';
 
 const apolloClient = new ApolloClient({
-  uri: 'http://localhost:4000/'
+  // TODO: raw `uri` to env. variable
+  uri: 'https://inspiration-native-fork.netlify.com/.netlify/functions/graphql'
 });
 
 const themes = { light, dark };
@@ -25,7 +26,7 @@ const App = () => {
       <ApplicationProvider mapping={mapping} theme={themes[theme]}>
         <Layout style={{ flex: 1 }}>
           <SafeAreaView>
-            <HomeScreen toggleTheme={toggleTheme} />
+            <HomeScreen theme={theme} toggleTheme={toggleTheme} />
           </SafeAreaView>
         </Layout>
       </ApplicationProvider>
