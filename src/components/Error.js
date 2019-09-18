@@ -4,15 +4,21 @@ import styled from 'styled-components/native';
 
 const Error = () => (
   <Container>
-    <Text status="danger" category="h5">
-      Something wrong happened ! 🤭
-    </Text>
+    <UIText status="danger" category="h5">
+      🤭 {'\n'}Something wrong happened
+    </UIText>
   </Container>
 );
+
 export default Error;
 
 const Container = styled(Layout)`
-  padding-top: 20;
+  padding: 20px;
   align-items: center;
   justify-content: center;
+  flex: 1;
+`;
+
+const UIText = styled(Text)`
+  text-align: center;
 `;

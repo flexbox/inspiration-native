@@ -7,7 +7,7 @@ import { mapping, light, dark } from '@eva-design/eva';
 import { HomeScreen } from './src/HomeScreen';
 
 const apolloClient = new ApolloClient({
-  uri: 'http://localhost:4000/'
+  uri: 'https://eu1.prisma.sh/flexbox/inspiration/dev'
 });
 
 const themes = { light, dark };

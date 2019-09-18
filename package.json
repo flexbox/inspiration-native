@@ -7,7 +7,7 @@
     "web": "expo start --web --non-interactive",
     "eject": "expo eject",
     "deploy:staging": "expo build:web",
-    "deploy:prod": "netlify deploy --prod",
+    "deploy:prod": "netlify deploy --prod --dir web-build",
     "server": "node server/index.js"
   },
   "dependencies": {

@@ -4,13 +4,19 @@ import styled from 'styled-components/native';
 
 const Loader = () => (
   <Container>
-    <Text category="h5">Loading... ⏳</Text>
+    <UIText category="h5">⏳{'\n'} Loading…</UIText>
   </Container>
 );
+
 export default Loader;
 
 const Container = styled(Layout)`
-  padding-top: 20;
+  padding: 20px;
   align-items: center;
   justify-content: center;
+  flex: 1;
+`;
+
+const UIText = styled(Text)`
+  text-align: center;
 `;

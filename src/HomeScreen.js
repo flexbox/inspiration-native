@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { View, Dimensions } from 'react-native';
 import { gql } from 'apollo-boost';
-import { useLazyQuery, useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import {
   Layout,
   Text,
@@ -9,6 +10,7 @@ import {
   BottomNavigation,
   BottomNavigationTab
 } from 'react-native-ui-kitten';
+import { FontAwesome } from '@expo/vector-icons';
 import { Quote } from './components/Quote';
 import Loader from './components/Loader';
 import Error from './components/Error';
@@ -95,35 +97,49 @@ export const HomeScreen = props => {
   return (
     <Container>
       <Header>
-        <Text category="h4">Inspiration</Text>
-        <Button onPress={props.toggleTheme}>Switch theme</Button>
+        <Text category="h5">Inspiration</Text>
+        <Button type="basic" appearance="ghost" onPress={props.toggleTheme}>
+          {' '}
+          <FontAwesome name="adjust" size={16} />
+        </Button>
       </Header>
-      {loading && <Loader />}
-      {error && <Error />}
-      {data && getQuotes() && (
-        <List data={getQuotes()} renderItem={renderItem} />
-      )}
-      <StyledBottomNavigation selectedIndex={index} onSelect={updateScreen}>
-        <BottomNavigationTab title="All" />
-        <BottomNavigationTab title="Last" />
-        <BottomNavigationTab title="Random" />
+      <ContainerList>
+        {loading && <Loader />}
+        {error && <Error />}
+        {data && getQuotes() && (
+          <List data={getQuotes()} renderItem={renderItem} />
+        )}
+      </ContainerList>
+      <StyledBottomNavigation>
+        <BottomNavigation selectedIndex={index} onSelect={updateScreen}>
+          <BottomNavigationTab title="All" />
+          <BottomNavigationTab title="Last" />
+          <BottomNavigationTab title="Random" />
+        </BottomNavigation>
       </StyledBottomNavigation>
     </Container>
   );
 };
 
-const Container = styled(Layout)``;
+const Container = styled(View)`
+  ${'' /* flex: 1; */}
+  ${'' /* flex-direction: column; */}
+`;
 
-const Header = styled(Layout)`
-  margin: 30px;
+const Header = styled(View)`
+  margin: 10px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 `;
 
+const ContainerList = styled(View)`
+  ${'' /* flex: 1; */}
+`;
+
+console.log('TCL: screenHeight', height);
+
 const StyledBottomNavigation = styled(BottomNavigation)`
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  z-index: 2;
+  ${'' /* position: absolute;
+  top: 350; */}
 `;
