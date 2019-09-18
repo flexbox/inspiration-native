@@ -1,3 +1,8 @@
 [build]
   functions = "lambda"
   publish = "web-build"
+[[redirects]]
+  from = "/.netlify/functions/graphql"
+  to = "/.netlify/functions/graphql"
+  [redirects.headers]
+    Access-Control-Allow-Origin = "*"
