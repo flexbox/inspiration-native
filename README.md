@@ -1,21 +1,45 @@
-# Inspiration-native • [![Netlify Status](https://api.netlify.com/api/v1/badges/ece32f9d-5cd2-4360-a0ed-b7e64b2eb7d0/deploy-status)](https://app.netlify.com/sites/inspiration-native/deploys)
+# Inspiration-native • [![Netlify Status](https://api.netlify.com/api/v1/badges/49ea4e46-01d3-4bfa-a952-afd0c0f53be8/deploy-status)](https://app.netlify.com/sites/inspiration-native-staging/deploys)
 
-> React Native (Expo iOS, Android and Web) application for
+> Inspiration Native (Expo iOS, Android and Web)
 
-## Getting started
+## Setup
 
 ```bash
+# 🔧  Install dependencies
 yarn
-yarn server # Start our GraphQL Server
+# 👷‍  Build our Graph QL API Function (don't panic when you see WARNINGS)
+yarn build:lambda
+```
+
+## Workflow
+
+### Development
+
+```bash
+# 🚀  Start Graph QL server
+yarn start:lambda
+# 🚀  Start the App (Web, iOS, Android)
 yarn start
+# 💻  In your CLI:
+# 📲  Scan the QR code with your phone and watch...It's magic ✨
+# ️️⌨  Hit `w` for Web: to open the Web App on your favourite browser and voilà ! 🎩
+# ⌨  Hit `i` for iOS: to open the iOS App on your favourite iOS smulator ( ⚠️  Mac and Xcode needed)
+# ⌨  Hit `a` for Android: to open the Android App on your Android AVD (⚠️  Android Studio and an already running AVD needed)
 ```
 
-## Release Workflow
+### Production
 
-```
-yarn deploy:staging
+```bash
+# 📱  Mobile: `apk` or `ipa`
+# 🙌  Let Expo handle the process
+yarn build:android
+yarn build:ios
+
+# 👷‍  Web: files to `web-build`
+yarn build:web
+
+# 🚀  Deploy `web-build` and our `lambdas` to Netlify
 yarn deploy:prod
-on the prompt add the folder `web-build`
 ```
 
 ## Author

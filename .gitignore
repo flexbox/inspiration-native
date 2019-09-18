@@ -1,10 +1,19 @@
-node_modules/**/*
-.expo/*
+node_modules/
 npm-debug.*
 *.jks
 *.p12
 *.key
 *.mobileprovision
 *.orig.*
+
+# Expo
+.expo/
 web-build/
 web-report/
+
+# Local Netlify folder
+.netlify/
+lambda/
+
+# VSCode
+.vscode/

@@ -2,10 +2,13 @@ import React from 'react';
 import { Text, Layout } from 'react-native-ui-kitten';
 import styled from 'styled-components/native';
 
-const Error = () => (
+const Error = ({ reason = '' }) => (
   <Container>
     <Text status="danger" category="h5">
       Something wrong happened ! 🤭
+    </Text>
+    <Text status="danger" category="h6">
+      {reason}
     </Text>
   </Container>
 );
