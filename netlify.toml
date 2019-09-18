@@ -4,5 +4,6 @@
 [[redirects]]
   from = "/.netlify/functions/graphql"
   to = "/.netlify/functions/graphql"
+  status = 200
   [redirects.headers]
     Access-Control-Allow-Origin = "*"
