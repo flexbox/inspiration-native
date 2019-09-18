@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Dimensions, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
+import { FontAwesome } from '@expo/vector-icons';
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 import {
@@ -96,16 +97,16 @@ export const HomeScreen = props => {
   return (
     <Container>
       <Header>
-        <Text category="h3">Inspiration 🧠</Text>
-        <Button status="info" size="small" onPress={props.toggleTheme}>
-          {props.theme === 'light' ? '🌙 ' : '🌞 '}
-          Switch theme
+        <Text category="h4">Inspiration</Text>
+        <Button type="basic" appearance="ghost" onPress={props.toggleTheme}>
+          {' '}
+          <FontAwesome name="adjust" size={16} />
         </Button>
       </Header>
       {loading && <Loader />}
       {error && <Error reason="Cannot fetch Data from the server" />}
       <Layout style={{ flex: 1 }}>
-        <ListContainer contentContainerStyle={{ paddingBottom: 50 }}>
+        <ListContainer contentContainerStyle={{ paddingBottom: 60 }}>
           {data && getQuotes() && (
             <List data={getQuotes()} renderItem={renderItem} />
           )}
@@ -121,7 +122,7 @@ export const HomeScreen = props => {
 };
 
 const Container = styled(Layout)`
-  height: ${Dimensions.get('window').height - 50};
+  height: ${Dimensions.get('window').height - 60};
   position: relative;
 `;
 

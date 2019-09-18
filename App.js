@@ -1,8 +1,8 @@
 import React from 'react';
-import { SafeAreaView, Platform } from 'react-native';
+import { Platform, SafeAreaView } from 'react-native';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { ApplicationProvider, Layout } from 'react-native-ui-kitten';
+import { ApplicationProvider } from 'react-native-ui-kitten';
 import { mapping, light, dark } from '@eva-design/eva';
 import { HomeScreen } from './src/HomeScreen';
 
@@ -38,11 +38,9 @@ const App = () => {
   return (
     <ApolloProvider client={apolloClient}>
       <ApplicationProvider mapping={mapping} theme={themes[theme]}>
-        <Layout style={{ flex: 1 }}>
-          <SafeAreaView>
-            <HomeScreen theme={theme} toggleTheme={toggleTheme} />
-          </SafeAreaView>
-        </Layout>
+        <SafeAreaView>
+          <HomeScreen theme={theme} toggleTheme={toggleTheme} />
+        </SafeAreaView>
       </ApplicationProvider>
     </ApolloProvider>
   );
