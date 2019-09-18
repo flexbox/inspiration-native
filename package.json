@@ -1,11 +1,12 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start -c",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web --non-interactive",
+    "start": "expo start --dev -c",
+    "android": "expo start --dev --android",
+    "ios": "expo start --dev --ios",
+    "web": "expo start --dev --web --non-interactive",
     "eject": "expo eject",
+    "start:lambda": "netlify-lambda serve functions",
     "build:lambda": "netlify-lambda build functions",
     "build:android": "expo build:android",
     "build:ios": "expo build:ios",
@@ -32,7 +33,9 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.1.1"
+    "@expo/webpack-config": "^0.7.4",
+    "babel-preset-expo": "^5.1.1",
+    "http-proxy-middleware": "^0.20.0"
   },
   "license": "MIT"
 }

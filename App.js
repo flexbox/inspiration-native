@@ -1,5 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import { SafeAreaView } from 'react-native';
+import {} from 'expo';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { ApplicationProvider, Layout } from 'react-native-ui-kitten';
@@ -7,9 +8,10 @@ import { mapping, light, dark } from '@eva-design/eva';
 import { HomeScreen } from './src/HomeScreen';
 
 const apolloClient = new ApolloClient({
-  // TODO: raw `uri` to env. variable
   uri:
-    'https://inspiration-native-staging.netlify.com/.netlify/functions/graphql'
+    process.env.NODE_ENV === 'development'
+      ? 'http://192.168.0.10:19006/graphql'
+      : 'https://inspiration-native-staging.netlify.com/.netlify/functions/graphql'
 });
 
 const themes = { light, dark };

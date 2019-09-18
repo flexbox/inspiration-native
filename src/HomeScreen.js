@@ -103,7 +103,7 @@ export const HomeScreen = props => {
         </Button>
       </Header>
       {loading && <Loader />}
-      {error && <Error />}
+      {error && <Error reason="Cannot fetch Data from the server" />}
       <Layout style={{ flex: 1 }}>
         <ListContainer contentContainerStyle={{ paddingBottom: 50 }}>
           {data && getQuotes() && (
@@ -136,7 +136,7 @@ const Header = styled(Layout)`
 const ListContainer = styled(ScrollView)``;
 
 const StyledBottomNavigation = styled(BottomNavigation)`
-  width: ${Dimensions.get('window').width};
+  width: 100%;
   position: absolute;
   bottom: 0px;
   height: 50;
