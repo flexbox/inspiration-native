@@ -1,4 +1,4 @@
-# Inspiration-native • [![Netlify Status](https://api.netlify.com/api/v1/badges/49ea4e46-01d3-4bfa-a952-afd0c0f53be8/deploy-status)](https://app.netlify.com/sites/inspiration-native-staging/deploys)
+# Inspiration-native • [![Netlify Status](https://api.netlify.com/api/v1/badges/ece32f9d-5cd2-4360-a0ed-b7e64b2eb7d0/deploy-status)](https://app.netlify.com/sites/inspiration-native/deploys)
 
 > Inspiration Native (Expo iOS, Android and Web)
 
@@ -42,8 +42,4 @@ yarn build:web
 yarn deploy:prod
 ```
 
-## Author
-
-| [![twitter/flexbox_](https://gravatar.com/avatar/66ecc55f1bc2e5863eb516ee6f20794e?s=70)](https://twitter.com/flexbox_ 'Follow @flexbox_ on Twitter') |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [David Leuliette](https://davidl.fr/)                                                                                                                |
+You can watch the [entire build on this video](https://www.youtube.com/watch?time_continue=3&v=9qrChFqTJBE)

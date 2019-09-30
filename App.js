@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'development') {
   }
 } else {
   uri =
-    'https://inspiration-native-staging.netlify.com/.netlify/functions/graphql';
+    'https://inspiration-native.netlify.com/.netlify/functions/graphql';
 }
 
 const apolloClient = new ApolloClient({

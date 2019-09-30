@@ -17,3 +17,5 @@ lambda/
 
 # VSCode
 .vscode/
+# Local Netlify folder
+.netlify
